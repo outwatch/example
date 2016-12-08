@@ -6,8 +6,8 @@ version := "$version$"
 
 organization := "$organization$"
 
-scalaVersion := "2.12.0"
+scalaVersion := "2.12.1"
 
 libraryDependencies ++= Seq(
-  "io.github.outwatch" %%% "outwatch" % "0.3.2"
+  "io.github.outwatch" %%% "outwatch" % "0.4.1"
 )
