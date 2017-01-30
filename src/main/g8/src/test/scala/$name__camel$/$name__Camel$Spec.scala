@@ -4,7 +4,7 @@ import org.scalatest._
 import org.scalajs.dom._
 import outwatch.dom._
 
-object $name;format="Camel"$Spec extends FlatSpec with Matchers with BeforeAndAfterEach {
+class $name;format="Camel"$Spec extends FlatSpec with Matchers with BeforeAndAfterEach {
 
   override def beforeEach(): Unit = {
     val root = document.createElement("div")
