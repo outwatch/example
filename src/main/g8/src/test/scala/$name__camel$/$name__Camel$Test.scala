@@ -1,10 +1,26 @@
 package $name;format="camel"$
 
 import org.scalatest._
+import org.scalajs.dom._
 import outwatch.dom._
 
-object $name;format="Camel"$Spec extends FlatSpec with Matchers {
+object $name;format="Camel"$Spec extends FlatSpec with Matchers with BeforeAndAfterEach {
+
+  override def beforeEach(): Unit = {
+    val root = document.createElement("div")
+    root.id = "app"
+    document.body.appendChild(root)
+  }
+
+  override def afterEach(): Unit = {
+    document.body.innerHTML = ""
+  }
+
   "You" should "probably add some tests" in {
-    true shouldBe true
+
+    val message = "Hello World!"
+    OutWatch.render("#app", h1(message))
+
+    document.body.innerHTML.contains(message) shouldBe true
   }
 }
