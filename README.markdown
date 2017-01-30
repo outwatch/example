@@ -1,4 +1,6 @@
-A [Giter8][g8] template for OutWatch!
+A [Giter8][g8] template for OutWatch! 
+
+[![Build Status](https://travis-ci.org/OutWatch/seed.g8.svg?branch=master)](https://travis-ci.org/OutWatch/seed.g8)
 
 Template license
 ----------------
