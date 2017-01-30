@@ -1,3 +1,5 @@
+package $name;format="camel"$
+
 import scala.scalajs.js.JSApp
 import outwatch.dom._
 
