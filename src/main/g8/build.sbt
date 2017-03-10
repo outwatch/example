@@ -11,6 +11,6 @@ scalaVersion := "2.12.1"
 jsEnv := PhantomJSEnv().value
 
 libraryDependencies ++= Seq(
-  "io.github.outwatch" %%% "outwatch" % "0.9.0",
+  "io.github.outwatch" %%% "outwatch" % "0.9.1",
   "org.scalatest" %%% "scalatest" % "3.0.1" % Test
 )
