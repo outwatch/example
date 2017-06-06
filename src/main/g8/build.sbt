@@ -1,4 +1,4 @@
-enablePlugins(ScalaJSPlugin)
+enablePlugins(ScalaJSPlugin, ScalaJSBundlerPlugin)
 
 name := "$name;format="Camel"$"
 
@@ -6,11 +6,11 @@ version := "$version$"
 
 organization := "$organization$"
 
-scalaVersion := "2.12.1"
+scalaVersion := "2.12.2"
 
-jsEnv := PhantomJSEnv().value
+requiresDOM in Test := true
 
 libraryDependencies ++= Seq(
-  "io.github.outwatch" %%% "outwatch" % "0.7.1",
+  "io.github.outwatch" %%% "outwatch" % "0.10.0",
   "org.scalatest" %%% "scalatest" % "3.0.1" % Test
 )
