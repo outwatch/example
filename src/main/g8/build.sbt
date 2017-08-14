@@ -6,7 +6,7 @@ version := "$version$"
 
 organization := "$organization$"
 
-scalaVersion := "2.12.2"
+scalaVersion := "2.12.3"
 
 requiresDOM in Test := true
 
