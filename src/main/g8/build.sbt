@@ -11,6 +11,6 @@ scalaVersion := "2.12.3"
 requiresDOM in Test := true
 
 libraryDependencies ++= Seq(
-  "io.github.outwatch" %%% "outwatch" % "0.10.1",
-  "org.scalatest" %%% "scalatest" % "3.0.1" % Test
+  "io.github.outwatch" %%% "outwatch" % "0.10.2",
+  "org.scalatest" %%% "scalatest" % "3.0.3" % Test
 )
