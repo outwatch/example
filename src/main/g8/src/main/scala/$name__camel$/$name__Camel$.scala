@@ -1,10 +1,12 @@
 package $name;format="camel"$
 
-import scala.scalajs.js.JSApp
 import outwatch.dom._
+import outwatch.dom.dsl._
+import monix.execution.Scheduler.Implicits.global
 
-object $name;format="Camel"$ extends JSApp {
-  def main(): Unit = {
-    OutWatch.render("#app", h1("Hello World"))
+object $name;format="Camel"$ {
+  def main(args: Array[String]): Unit = {
+
+    OutWatch.renderInto("#app", h1("Hello World")).unsafeRunSync()
   }
 }
