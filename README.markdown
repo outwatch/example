@@ -7,6 +7,14 @@ A [Giter8][g8] template for OutWatch!
 sbt new outwatch/seed.g8
 ```
 
+Then run
+
+```bash
+sbt dev
+```
+
+and point your browser to http://localhost:8080.
+
 Template license
 ----------------
 Written in 2016 by Luka Jacobowitz
