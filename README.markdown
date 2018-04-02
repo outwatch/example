@@ -2,6 +2,11 @@ A [Giter8][g8] template for OutWatch!
 
 [![Build Status](https://travis-ci.org/OutWatch/seed.g8.svg?branch=master)](https://travis-ci.org/OutWatch/seed.g8)
 
+
+```bash
+sbt new outwatch/seed.g8
+```
+
 Template license
 ----------------
 Written in 2016 by Luka Jacobowitz
