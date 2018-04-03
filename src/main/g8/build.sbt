@@ -1,3 +1,5 @@
+import org.scalajs.jsenv.jsdomnodejs.JSDOMNodeJSEnv
+
 organization := "$organization$"
 name := "$name;format="Camel"$"
 version := "$version$"
@@ -9,11 +11,12 @@ libraryDependencies ++= Seq(
   "org.scalatest" %%% "scalatest" % "3.0.5" % Test
 )
 
-enablePlugins(ScalaJSPlugin, ScalaJSBundlerPlugin)
+enablePlugins(ScalaJSBundlerPlugin)
 scalacOptions += "-P:scalajs:sjsDefinedByDefault"
 useYarn := true // makes scalajs-bundler use yarn instead of npm
-requiresDOM in Test := true
+jsEnv in Test := new JSDOMNodeJSEnv
 scalaJSUseMainModuleInitializer := true
+scalaJSModuleKind := ModuleKind.CommonJSModule // configure Scala.js to emit a JavaScript module instead of a top-level script
 
 
 scalacOptions ++=
