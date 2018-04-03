@@ -1,6 +1,13 @@
 $name$
 ====
 
+## Prerequisites
+   
+You should make sure that the following components are pre-installed on your machine:
+   
+ - [Node.js](https://nodejs.org/en/download/)
+ - [Yarn](https://yarnpkg.com/en/docs/install)
+
 ## Create a module
 in sbt shell: `fastOptJS::webpack` or `fullOptJS::webpack`
 
