@@ -2,6 +2,7 @@ A [Giter8][g8] template for OutWatch!
 
 [![Build Status](https://travis-ci.org/OutWatch/seed.g8.svg?branch=master)](https://travis-ci.org/OutWatch/seed.g8)
 
+Make sure to have `java`, `sbt`, `nodejs` and `yarn` installed.
 
 ```bash
 sbt new outwatch/seed.g8
