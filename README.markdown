@@ -8,7 +8,7 @@ Make sure to have `java`, `sbt`, `nodejs` and `yarn` installed.
 sbt new outwatch/seed.g8
 ```
 
-Then run
+In your newly created project directory, run:
 
 ```bash
 sbt dev
