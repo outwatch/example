@@ -2,7 +2,7 @@ organization := "$organization$"
 name := "$name;format="Camel"$"
 version := "$version$"
 
-scalaVersion := "2.12.5"
+scalaVersion := "2.12.6"
 
 libraryDependencies ++= Seq(
   "io.github.outwatch" %%% "outwatch" % "1.0.0-RC2",
@@ -43,8 +43,8 @@ scalacOptions ++=
 addCommandAlias("dev", "; compile; fastOptJS::startWebpackDevServer; devwatch; fastOptJS::stopWebpackDevServer")
 addCommandAlias("devwatch", "~; fastOptJS; copyFastOptJS")
 
-version in webpack := "4.4.1"
-version in startWebpackDevServer := "3.1.1"
+version in webpack := "4.16.1"
+version in startWebpackDevServer := "3.1.4"
 webpackDevServerExtraArgs := Seq("--progress", "--color")
 webpackConfigFile in fastOptJS := Some(baseDirectory.value / "webpack.config.dev.js")
 
