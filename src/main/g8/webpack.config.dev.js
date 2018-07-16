@@ -12,5 +12,5 @@ module.exports.devServer = {
     watchContentBase: true,
     hot: false,
     hotOnly: false, // only reload when build is successful
-    inline: true // show build errors in browser console
+    inline: true // live reloading
 };
