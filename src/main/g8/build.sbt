@@ -13,9 +13,9 @@ libraryDependencies ++= Seq(
 enablePlugins(ScalaJSBundlerPlugin)
 scalacOptions += "-P:scalajs:sjsDefinedByDefault"
 useYarn := true // makes scalajs-bundler use yarn instead of npm
-requiresDOM in Test := true
+requireJsDomEnv in Test := true
 scalaJSUseMainModuleInitializer := true
-scalaJSModuleKind := ModuleKind.CommonJSModule // configure Scala.js to emit a JavaScript module instead of a top-level script
+scalaJSLinkerConfig ~= (_.withModuleKind(ModuleKind.CommonJSModule)) // configure Scala.js to emit a JavaScript module instead of a top-level script
 
 
 scalacOptions ++=
