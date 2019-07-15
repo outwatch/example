@@ -2,12 +2,12 @@ organization := "$organization$"
 name := "$name;format="Camel"$"
 version := "$version$"
 
-scalaVersion := "2.12.6"
+scalaVersion := "2.12.8"
 resolvers += "jitpack" at "https://jitpack.io"
 
 libraryDependencies ++= Seq(
   "com.github.outwatch" % "outwatch" % "401158d",
-  "org.scalatest" %%% "scalatest" % "3.0.5" % Test
+  "org.scalatest" %%% "scalatest" % "3.0.8" % Test
 )
 
 enablePlugins(ScalaJSBundlerPlugin)
