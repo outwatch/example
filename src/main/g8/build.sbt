@@ -3,9 +3,10 @@ name := "$name;format="Camel"$"
 version := "$version$"
 
 scalaVersion := "2.12.6"
+resolvers += "jitpack" at "https://jitpack.io"
 
 libraryDependencies ++= Seq(
-  "io.github.outwatch" %%% "outwatch" % "1.0.0-RC2",
+  "com.github.outwatch" % "outwatch" % "401158d",
   "org.scalatest" %%% "scalatest" % "3.0.5" % Test
 )
 
