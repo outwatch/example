@@ -47,6 +47,7 @@ addCommandAlias("devwatch", "~; fastOptJS; copyFastOptJS")
 version in webpack := "4.16.1"
 version in startWebpackDevServer := "3.1.4"
 webpackDevServerExtraArgs := Seq("--progress", "--color")
+webpackDevServerPort := 8080
 webpackConfigFile in fastOptJS := Some(baseDirectory.value / "webpack.config.dev.js")
 
 webpackBundlingMode in fastOptJS := BundlingMode.LibraryOnly() // https://scalacenter.github.io/scalajs-bundler/cookbook.html#performance
