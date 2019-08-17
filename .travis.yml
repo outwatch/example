@@ -1,5 +1,9 @@
 language: scala
-jdk: oraclejdk8
+
+jdk:
+  - openjdk8
+  - openjdk11
+
 node_js: 9
 
 script:
