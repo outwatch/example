@@ -44,6 +44,8 @@ scalacOptions ++=
 addCommandAlias("dev", "; compile; fastOptJS::startWebpackDevServer; devwatch; fastOptJS::stopWebpackDevServer")
 addCommandAlias("devwatch", "~; fastOptJS; copyFastOptJS")
 
+emitSourceMaps := false
+
 version in webpack := "4.16.1"
 version in startWebpackDevServer := "3.1.4"
 webpackDevServerExtraArgs := Seq("--progress", "--color")
@@ -59,6 +61,11 @@ lazy val copyFastOptJS = TaskKey[Unit]("copyFastOptJS", "Copy javascript files t
 copyFastOptJS := {
   val inDir = (crossTarget in (Compile, fastOptJS)).value
   val outDir = (crossTarget in (Compile, fastOptJS)).value / "dev"
-  val files = Seq(name.value.toLowerCase + "-fastopt-loader.js", name.value.toLowerCase + "-fastopt.js") map { p => (inDir / p, outDir / p) }
+  val fileNames = Seq(name.value.toLowerCase + "-fastopt-loader.js", name.value.toLowerCase + "-fastopt.js")
+  val files = (
+    if (emitSourceMaps.value) fileNames :+ name.value.toLowerCase + "-fastopt.js.map" else fileNames
+  ) map { p =>
+    (inDir / p, outDir / p)
+  }
   IO.copy(files, overwrite = true, preserveLastModified = true, preserveExecutable = true)
 }
