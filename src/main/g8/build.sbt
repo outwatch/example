@@ -17,7 +17,6 @@ requireJsDomEnv in Test := true
 scalaJSUseMainModuleInitializer := true
 scalaJSLinkerConfig ~= (_.withModuleKind(ModuleKind.CommonJSModule)) // configure Scala.js to emit a JavaScript module instead of a top-level script
 
-
 scalacOptions ++=
   "-encoding" :: "UTF-8" ::
   "-unchecked" ::
@@ -25,19 +24,14 @@ scalacOptions ++=
   "-explaintypes" ::
   "-feature" ::
   "-language:_" ::
-  "-Xfuture" ::
   "-Xlint" ::
-  "-Ypartial-unification" ::
-  "-Yno-adapted-args" ::
-  "-Ywarn-extra-implicit" ::
-  "-Ywarn-infer-any" ::
-  "-Ywarn-value-discard" ::
-  "-Ywarn-nullary-override" ::
-  "-Ywarn-nullary-unit" ::
+  "-Xlint:adapted-args" ::
+  "-Wextra-implicit" ::
+  "-Xlint:infer-any" ::
+  "-Wvalue-discard" ::
+  "-Xlint:nullary-override" ::
+  "-Xlint:nullary-unit" ::
   Nil
-
-
-
 
 // hot reloading configuration:
 // https://github.com/scalacenter/scalajs-bundler/issues/180
