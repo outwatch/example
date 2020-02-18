@@ -24,6 +24,7 @@ before_cache:
 
 notifications:
   webhooks:
+    if: branch = master
     urls:
       - https://webhooks.gitter.im/e/07b9efe2db0a76c2816c
     on_success: change
