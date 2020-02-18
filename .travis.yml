@@ -21,3 +21,11 @@ before_cache:
 # Cleanup the cached directories to avoid unnecessary cache updates
 - find $HOME/.ivy2       -name "ivydata-*.properties" -print -delete
 - find $HOME/.sbt        -name "*.lock"               -print -delete
+
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/07b9efe2db0a76c2816c
+    on_success: change
+    on_failure: always
+    on_start: never
