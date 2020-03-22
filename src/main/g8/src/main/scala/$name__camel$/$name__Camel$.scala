@@ -1,12 +1,12 @@
 package $name;format="camel"$
 
-import outwatch.dom._
-import outwatch.dom.dsl._
-import monix.execution.Scheduler.Implicits.global
+import outwatch._
+import outwatch.dsl._
 
-object $name;format="Camel"$ {
+import cats.effect.IO
+
   def main(args: Array[String]): Unit = {
 
-    OutWatch.renderInto("#app", h1("Hello World")).unsafeRunSync()
+    OutWatch.renderInto[IO]("#app", h1("Hello World")).unsafeRunSync()
   }
 }

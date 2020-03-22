@@ -1,12 +1,12 @@
-organization := "$organization$"
-name := "$name;format="Camel"$"
-version := "$version$"
+//organization := "$organization$"
+//name := "$name;format="Camel"$"
+//version := "$version$"
 
 scalaVersion := "2.13.0"
 resolvers += "jitpack" at "https://jitpack.io"
 
 libraryDependencies ++= Seq(
-  "com.github.outwatch.outwatch" %%% "outwatch" % "a332851",
+  "com.github.outwatch.outwatch" %%% "outwatch" % "961d3de",
   "org.scalatest" %%% "scalatest" % "3.0.8" % Test
 )
 

@@ -2,16 +2,17 @@ package $name;format="camel"$
 
 import org.scalatest._
 import org.scalajs.dom._
-import outwatch.dom._
-import outwatch.dom.dsl._
-import monix.execution.Scheduler.Implicits.global
+import outwatch._
+import outwatch.dsl._
+
+import cats.effect.IO
 
 class $name;format="Camel"$Spec extends JSDomSpec {
 
   "You" should "probably add some tests" in {
 
     val message = "Hello World!"
-    OutWatch.renderInto("#app", h1(message)).unsafeRunSync()
+    OutWatch.renderInto[IO]("#app", h1(message)).unsafeRunSync()
 
     document.body.innerHTML.contains(message) shouldBe true
   }

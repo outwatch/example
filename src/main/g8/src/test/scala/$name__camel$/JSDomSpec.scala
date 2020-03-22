@@ -2,13 +2,8 @@ package $name;format="camel"$
 
 import org.scalatest._
 import org.scalajs.dom._
-import monix.execution.ExecutionModel.SynchronousExecution
-import monix.execution.schedulers.TrampolineScheduler
-import monix.execution.{Cancelable, Scheduler}
 
 abstract class JSDomSpec extends FlatSpec with Matchers with BeforeAndAfterEach {
-
-  implicit val scheduler = TrampolineScheduler(Scheduler.global, SynchronousExecution)
 
   override def beforeEach(): Unit = {
 
