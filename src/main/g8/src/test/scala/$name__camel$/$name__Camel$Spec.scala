@@ -1,6 +1,5 @@
 package $name;format="camel"$
 
-import org.scalatest._
 import org.scalajs.dom._
 import outwatch._
 import outwatch.dsl._

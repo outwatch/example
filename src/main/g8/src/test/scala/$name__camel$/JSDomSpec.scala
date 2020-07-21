@@ -1,9 +1,11 @@
 package $name;format="camel"$
 
-import org.scalatest._
 import org.scalajs.dom._
+import org.scalatest.BeforeAndAfterEach
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-abstract class JSDomSpec extends FlatSpec with Matchers with BeforeAndAfterEach {
+abstract class JSDomSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
 
   override def beforeEach(): Unit = {
 
