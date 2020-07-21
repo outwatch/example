@@ -2,16 +2,15 @@
 //name := "$name;format="Camel"$"
 //version := "$version$"
 
-scalaVersion := "2.13.0"
+scalaVersion := "2.13.1"
 resolvers += "jitpack" at "https://jitpack.io"
 
 libraryDependencies ++= Seq(
-  "com.github.outwatch.outwatch" %%% "outwatch" % "961d3de",
-  "org.scalatest" %%% "scalatest" % "3.0.8" % Test
+  "com.github.outwatch.outwatch" %%% "outwatch" % "61deece8",
+  "org.scalatest" %%% "scalatest" % "3.2.0" % Test
 )
 
 enablePlugins(ScalaJSBundlerPlugin)
-scalacOptions += "-P:scalajs:sjsDefinedByDefault"
 useYarn := true // makes scalajs-bundler use yarn instead of npm
 requireJsDomEnv in Test := true
 scalaJSUseMainModuleInitializer := true
@@ -38,8 +37,8 @@ scalacOptions ++=
 addCommandAlias("dev", "; compile; fastOptJS::startWebpackDevServer; devwatch; fastOptJS::stopWebpackDevServer")
 addCommandAlias("devwatch", "~; fastOptJS; copyFastOptJS")
 
-version in webpack := "4.16.1"
-version in startWebpackDevServer := "3.1.4"
+version in webpack := "4.43.0"
+version in startWebpackDevServer := "3.11.0"
 webpackDevServerExtraArgs := Seq("--progress", "--color")
 webpackDevServerPort := 8080
 webpackConfigFile in fastOptJS := Some(baseDirectory.value / "webpack.config.dev.js")
