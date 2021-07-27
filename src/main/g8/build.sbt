@@ -12,7 +12,7 @@ libraryDependencies ++= Seq(
 
 enablePlugins(ScalaJSBundlerPlugin)
 useYarn := true // makes scalajs-bundler use yarn instead of npm
-requireJsDomEnv in Test := true
+Test / requireJsDomEnv := true
 scalaJSUseMainModuleInitializer := true
 scalaJSLinkerConfig ~= (_.withModuleKind(ModuleKind.CommonJSModule)) // configure Scala.js to emit a JavaScript module instead of a top-level script
 
@@ -22,21 +22,20 @@ scalaJSLinkerConfig ~= (_.withModuleKind(ModuleKind.CommonJSModule)) // configur
 addCommandAlias("dev", "; compile; fastOptJS::startWebpackDevServer; devwatch; fastOptJS::stopWebpackDevServer")
 addCommandAlias("devwatch", "~; fastOptJS; copyFastOptJS")
 
-version in webpack := "4.46.0"
-version in startWebpackDevServer := "3.11.2"
+webpack / version := "4.46.0"
+startWebpackDevServer / version := "3.11.2"
 webpackDevServerExtraArgs := Seq("--color")
 webpackDevServerPort := 8080
-webpackConfigFile in fastOptJS := Some(baseDirectory.value / "webpack.config.dev.js")
-
-webpackBundlingMode in fastOptJS := BundlingMode.LibraryOnly() // https://scalacenter.github.io/scalajs-bundler/cookbook.html#performance
+fastOptJS / webpackConfigFile := Some(baseDirectory.value / "webpack.config.dev.js")
+fastOptJS / webpackBundlingMode := BundlingMode.LibraryOnly() // https://scalacenter.github.io/scalajs-bundler/cookbook.html#performance
 
 // when running the "dev" alias, after every fastOptJS compile all artifacts are copied into
 // a folder which is served and watched by the webpack devserver.
 // this is a workaround for: https://github.com/scalacenter/scalajs-bundler/issues/180
 lazy val copyFastOptJS = TaskKey[Unit]("copyFastOptJS", "Copy javascript files to target directory")
 copyFastOptJS := {
-  val inDir = (crossTarget in (Compile, fastOptJS)).value
-  val outDir = (crossTarget in (Compile, fastOptJS)).value / "dev"
+  val inDir = (Compile / fastOptJS / crossTarget).value
+  val outDir = (Compile / fastOptJS / crossTarget).value / "dev"
   val files = Seq(name.value.toLowerCase + "-fastopt-loader.js", name.value.toLowerCase + "-fastopt.js") map { p => (inDir / p, outDir / p) }
   IO.copy(files, overwrite = true, preserveLastModified = true, preserveExecutable = true)
 }
