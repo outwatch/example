@@ -2,12 +2,12 @@
 //name := "$name;format="Camel"$"
 //version := "$version$"
 
-scalaVersion := "2.13.1"
-resolvers += "jitpack" at "https://jitpack.io"
+scalaVersion := "2.13.6"
 
+resolvers += "jitpack" at "https://jitpack.io"
 libraryDependencies ++= Seq(
-  "com.github.outwatch.outwatch" %%% "outwatch" % "61deece8",
-  "org.scalatest" %%% "scalatest" % "3.2.0" % Test
+  "com.github.outwatch.outwatch" %%% "outwatch" % "e2266b7",
+  "org.scalatest" %%% "scalatest" % "3.2.9" % Test
 )
 
 enablePlugins(ScalaJSBundlerPlugin)
@@ -16,30 +16,15 @@ requireJsDomEnv in Test := true
 scalaJSUseMainModuleInitializer := true
 scalaJSLinkerConfig ~= (_.withModuleKind(ModuleKind.CommonJSModule)) // configure Scala.js to emit a JavaScript module instead of a top-level script
 
-scalacOptions ++=
-  "-encoding" :: "UTF-8" ::
-  "-unchecked" ::
-  "-deprecation" ::
-  "-explaintypes" ::
-  "-feature" ::
-  "-language:_" ::
-  "-Xlint" ::
-  "-Xlint:adapted-args" ::
-  "-Wextra-implicit" ::
-  "-Xlint:infer-any" ::
-  "-Wvalue-discard" ::
-  "-Xlint:nullary-override" ::
-  "-Xlint:nullary-unit" ::
-  Nil
 
 // hot reloading configuration:
 // https://github.com/scalacenter/scalajs-bundler/issues/180
 addCommandAlias("dev", "; compile; fastOptJS::startWebpackDevServer; devwatch; fastOptJS::stopWebpackDevServer")
 addCommandAlias("devwatch", "~; fastOptJS; copyFastOptJS")
 
-version in webpack := "4.43.0"
-version in startWebpackDevServer := "3.11.0"
-webpackDevServerExtraArgs := Seq("--progress", "--color")
+version in webpack := "4.46.0"
+version in startWebpackDevServer := "3.11.2"
+webpackDevServerExtraArgs := Seq("--color")
 webpackDevServerPort := 8080
 webpackConfigFile in fastOptJS := Some(baseDirectory.value / "webpack.config.dev.js")
 
