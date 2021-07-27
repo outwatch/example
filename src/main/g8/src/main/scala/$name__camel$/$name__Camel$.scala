@@ -2,13 +2,26 @@ package $name;format="camel"$
 
 import outwatch._
 import outwatch.dsl._
+import cats.effect.{IO, SyncIO, IOApp, ExitCode}
 
-import cats.effect.IO
+import colibri.Subject
 
-object $name;format="Camel"$ {
+object $name;format="Camel"$ extends IOApp {
+  def run(args: List[String]) = {
 
-  def main(args: Array[String]): Unit = {
+    val counter = SyncIO {
+      val number = Subject.behavior(0)
+      div(
+        button("+", onClick(number.map(_ + 1)) --> number),
+        number,
+      )
+    }
 
-    OutWatch.renderInto[IO]("#app", h1("Hello World")).unsafeRunSync()
+    val app = div(
+      h1("Hello World!"),
+      counter,
+    )
+
+    OutWatch.renderInto[IO]("#app", app).as(ExitCode.Success)
   }
 }
