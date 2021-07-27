@@ -1,6 +1,4 @@
-A [Giter8][g8] template for OutWatch! 
-
-[![Build Status](https://travis-ci.org/OutWatch/seed.g8.svg?branch=master)](https://travis-ci.org/OutWatch/seed.g8)
+A [Giter8][g8] template for [outwatch](https://github.com/outwatch/outwatch).
 
 Make sure that `java`, `sbt`, `nodejs` and `yarn` are installed.
 
