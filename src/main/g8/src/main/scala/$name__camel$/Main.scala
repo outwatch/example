@@ -6,8 +6,8 @@ import cats.effect.{IO, SyncIO, IOApp, ExitCode}
 
 import colibri.Subject
 
-object $name;format="Camel"$ extends IOApp {
-  def run(args: List[String]) = {
+object Main {
+  def main(args: Array[String]): Unit = {
 
     val counter = SyncIO {
       val number = Subject.behavior(0)
@@ -22,6 +22,6 @@ object $name;format="Camel"$ extends IOApp {
       counter,
     )
 
-    OutWatch.renderInto[IO]("#app", app).as(ExitCode.Success)
+    OutWatch.renderInto[IO]("#app", app)
   }
 }
