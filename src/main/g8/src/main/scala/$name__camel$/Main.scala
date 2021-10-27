@@ -2,7 +2,7 @@ package $name;format="camel"$
 
 import outwatch._
 import outwatch.dsl._
-import cats.effect.{IO, SyncIO, IOApp, ExitCode}
+import cats.effect.{IO, SyncIO}
 
 import colibri.Subject
 
@@ -22,6 +22,6 @@ object Main {
       counter,
     )
 
-    OutWatch.renderInto[IO]("#app", app)
+    OutWatch.renderInto[IO]("#app", app).unsafeRunSync()
   }
 }
