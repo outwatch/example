@@ -11,3 +11,17 @@ lazy val root = (project in file("."))
     scriptedLaunchOpts ++= List("-Xms1024m", "-Xmx1024m", "-XX:ReservedCodeCacheSize=128m", "-Xss2m", "-Dfile.encoding=UTF-8"),
     resolvers += Resolver.url("typesafe", url("https://repo.typesafe.com/typesafe/ivy-releases/"))(Resolver.ivyStylePatterns)
   )
+
+
+lazy val scalaStewardUpdater = project
+  .enablePlugins(ScalaJSPlugin)
+  .disablePlugins(Giter8Plugin, Giter8TemplatePlugin)
+  .settings(
+    scalaVersion := "2.13.6",
+    // replicate all dependencies here, so scala-steward can update them
+    libraryDependencies              ++= Seq(
+      "io.github.outwatch" %%% "outwatch-util" % "1.0.0-RC4",
+      "org.scalatest" %%% "scalatest" % "3.2.9" % Test,
+      ),
+    )
+
