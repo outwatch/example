@@ -18,11 +18,11 @@ lazy val scalaStewardUpdater = project
   .enablePlugins(ScalaJSPlugin)
   .disablePlugins(Giter8Plugin, Giter8TemplatePlugin)
   .settings(
-    scalaVersion := "2.13.6",
+    scalaVersion := "2.13.8",
     // replicate all dependencies here, so scala-steward can update them
     libraryDependencies              ++= Seq(
-      "io.github.outwatch" %%% "outwatch-util" % "1.0.0-RC4",
-      "org.scalatest" %%% "scalatest" % "3.2.9" % Test,
+      "io.github.outwatch" %%% "outwatch-util" % "1.0.0-RC5",
+      "org.scalatest" %%% "scalatest" % "3.2.10" % Test,
       ),
     )
 
