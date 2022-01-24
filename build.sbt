@@ -22,7 +22,7 @@ lazy val scalaStewardUpdater = project
     // replicate all dependencies here, so scala-steward can update them
     libraryDependencies              ++= Seq(
       "io.github.outwatch" %%% "outwatch-util" % "1.0.0-RC5",
-      "org.scalatest" %%% "scalatest" % "3.2.10" % Test,
+      "org.scalatest" %%% "scalatest" % "3.2.11" % Test,
       ),
     )
 
