@@ -1,4 +1,4 @@
-package $name;format="camel"$
+package webapp
 
 import org.scalajs.dom._
 import outwatch._
@@ -6,7 +6,7 @@ import outwatch.dsl._
 
 import cats.effect.IO
 
-class $name;format="Camel"$Spec extends JSDomSpec {
+class WebappSpec extends JSDomSpec {
 
   "You" should "probably add some tests" in {
 

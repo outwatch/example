@@ -13,6 +13,12 @@ lazy val root = (project in file("."))
     resolvers += Resolver.url("typesafe", url("https://repo.typesafe.com/typesafe/ivy-releases/"))(Resolver.ivyStylePatterns)
   )
 
+val versions = new {
+  val outwatch          = "1.0.0-RC5"
+  val funPack           = "0.1.4"
+  val scalaTest         = "3.2.11"
+  val macrotaskExecutor = "1.0.0"
+}
 
 lazy val scalaStewardUpdater = project
   .enablePlugins(ScalaJSPlugin)
@@ -21,8 +27,10 @@ lazy val scalaStewardUpdater = project
     scalaVersion := "2.13.8",
     // replicate all dependencies here, so scala-steward can update them
     libraryDependencies              ++= Seq(
-      "io.github.outwatch" %%% "outwatch-util" % "1.0.0-RC5",
-      "org.scalatest" %%% "scalatest" % "3.2.11" % Test,
+      "org.scala-js" %%% "scala-js-macrotask-executor" % versions.macrotaskExecutor,
+      "io.github.outwatch" %%% "outwatch"      % versions.outwatch,
+      "io.github.outwatch" %%% "outwatch-util" % versions.outwatch,
+      "org.scalatest"      %%% "scalatest"     % versions.scalaTest % Test,
       ),
     )
 

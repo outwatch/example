@@ -1,4 +1,4 @@
-package $name;format="camel"$
+package webapp
 
 import org.scalajs.dom._
 import org.scalatest.BeforeAndAfterEach
