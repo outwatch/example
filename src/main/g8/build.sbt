@@ -32,6 +32,10 @@ lazy val webapp = project
       "@fun-stack/fun-pack" -> versions.funPack, // sane defaults for webpack development and production, see webpack.config.*.js
     ),
 
+    scalacOptions --= Seq(
+      "-Xfatal-warnings",
+    ), // overwrite option from https://github.com/DavidGregory084/sbt-tpolecat
+
     useYarn                       := true, // Makes scalajs-bundler use yarn instead of npm
     scalaJSLinkerConfig ~= (_.withModuleKind(
       ModuleKind.CommonJSModule,
