@@ -30,13 +30,9 @@ lazy val webapp = project
     ),
     Compile / npmDevDependencies ++= Seq(
       "@fun-stack/fun-pack" -> versions.funPack, // sane defaults for webpack development and production, see webpack.config.*.js
-      "autoprefixer"        -> "10.2.5",
-      "postcss"             -> "8.2.9",
-      "postcss-loader"      -> "4.2.0",
-      "tailwindcss"         -> "3.0.10",
     ),
-    useYarn                       := true, // Makes scalajs-bundler use yarn instead of npm
 
+    useYarn                       := true, // Makes scalajs-bundler use yarn instead of npm
     scalaJSLinkerConfig ~= (_.withModuleKind(
       ModuleKind.CommonJSModule,
     )), // configure Scala.js to emit a JavaScript module instead of a top-level script
