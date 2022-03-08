@@ -14,7 +14,7 @@ lazy val root = (project in file("."))
   )
 
 val versions = new {
-  val outwatch          = "1.0.0-RC5"
+  val outwatch          = "1.0.0-RC6"
   val funPack           = "0.1.4"
   val scalaTest         = "3.2.11"
   val macrotaskExecutor = "1.0.0"
