@@ -14,6 +14,8 @@ sbt dev
 
 and point your browser to http://localhost:12345.
 
+This example is also automatically deployed to github pages: <https://outwatch.github.io/seed.g8>
+
 Template license
 ----------------
 Written in 2016 by Luka Jacobowitz
