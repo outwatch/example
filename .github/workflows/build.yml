@@ -35,7 +35,7 @@ jobs:
           sbt fastOptJS/webpack
 
       - name: Build production assets
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         run: |
           cd outwatch-example
           sbt prod
