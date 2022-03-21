@@ -31,13 +31,13 @@ jobs:
           export PATH=$HOME/.local/share/coursier/bin:$PATH
           # http://www.foundweekends.org/giter8/testing.html
           g8 file://${GITHUB_WORKSPACE}/ --name="Outwatch Example" --force
-          cd test-project
+          cd outwatch-example
           sbt fastOptJS/webpack
 
       - name: Build production assets
         if: github.ref == 'refs/heads/main'
         run: |
-          cd test-project
+          cd outwatch-example
           sbt prod
 
       - name: Deploy to Github Pages
@@ -45,7 +45,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: test-project/target/scala-2.13/scalajs-bundler/main/dist # The folder the action should deploy.
+          folder: outwatch-example/target/scala-2.13/scalajs-bundler/main/dist # The folder the action should deploy.
 
       # - name: Debug over SSH (tmate)
       #   # if: ${{ failure() }}
