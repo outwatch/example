@@ -10,9 +10,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: coursier/cache-action@v6
       - uses: olafurpg/setup-scala@v12
+
+      - uses: actions/cache@v2
+        name: Cache node_modules
+        with:
+          path: "node_modules"
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('yarn.lock') }}
+          restore-keys: ${{ runner.os }}-node_modules
+
+      - uses: actions/cache@v2
+        name: Cache scalajs-bundler node_modules
+        with:
+          path: "*/target/**/main/node_modules"
+          key: ${{ runner.os }}-scalajsbundler-node_modules-${{ hashFiles('*/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-scalajsbundler-node_modules
+
+      - name: Cache Scalablytyped transpilations
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.ivy2/local/org.scalablytyped
+            ~/.cache/scalablytyped
+          key: ${{ runner.os }}-scalablytyped-${{ hashfiles('build.sbt') }}-${{ hashFiles('*/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-scalablytyped-
 
       - name: Test
         run: sbt test
