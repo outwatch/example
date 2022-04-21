@@ -5,7 +5,7 @@ ThisBuild / version      := "0.1.0-SNAPSHOT"
 ThisBuild / scalaVersion := "2.13.8"
 
 val versions = new {
-  val outwatch          = "1.0.0-RC6"
+  val outwatch          = "1.0.0-RC7"
   val funPack           = "0.2.0"
   val scalaTest         = "3.2.11"
 }
@@ -25,7 +25,6 @@ lazy val webapp = project
   .settings(
     libraryDependencies          ++= Seq(
       "io.github.outwatch" %%% "outwatch"      % versions.outwatch,
-      "io.github.outwatch" %%% "outwatch-util" % versions.outwatch,
       "org.scalatest"      %%% "scalatest"     % versions.scalaTest % Test,
     ),
     Compile / npmDevDependencies ++= Seq(

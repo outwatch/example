@@ -2,7 +2,7 @@ package webapp
 
 import outwatch._
 import outwatch.dsl._
-import cats.effect.{IO, SyncIO}
+import cats.effect.SyncIO
 
 import colibri.Subject
 
@@ -11,7 +11,7 @@ import colibri.Subject
 
 object Main {
   def main(args: Array[String]): Unit =
-    OutWatch.renderInto[IO]("#app", app).unsafeRunSync()
+    Outwatch.renderInto[SyncIO]("#app", app).unsafeRunSync()
 
   def app = div(
     h1("Hello World!"),
@@ -37,7 +37,7 @@ object Main {
         value <-- text,
         onInput.value --> text,
       ),
-      button("clear", onClick.use("") --> text),
+      button("clear", onClick.as("") --> text),
       div("text: ", text),
       div("length: ", text.map(_.length)),
     )
