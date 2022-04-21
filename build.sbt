@@ -14,10 +14,9 @@ lazy val root = (project in file("."))
   )
 
 val versions = new {
-  val outwatch          = "1.0.0-RC6"
+  val outwatch          = "1.0.0-RC7"
   val funPack           = "0.2.0"
   val scalaTest         = "3.2.11"
-  val macrotaskExecutor = "1.0.0"
 }
 
 lazy val scalaStewardUpdater = project
@@ -27,9 +26,7 @@ lazy val scalaStewardUpdater = project
     scalaVersion := "2.13.8",
     // replicate all dependencies here, so scala-steward can update them
     libraryDependencies              ++= Seq(
-      "org.scala-js" %%% "scala-js-macrotask-executor" % versions.macrotaskExecutor,
       "io.github.outwatch" %%% "outwatch"      % versions.outwatch,
-      "io.github.outwatch" %%% "outwatch-util" % versions.outwatch,
       "org.scalatest"      %%% "scalatest"     % versions.scalaTest % Test,
       ),
     )
