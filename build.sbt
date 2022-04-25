@@ -16,7 +16,7 @@ lazy val root = (project in file("."))
 val versions = new {
   val outwatch          = "1.0.0-RC7"
   val funPack           = "0.2.0"
-  val scalaTest         = "3.2.11"
+  val scalaTest         = "3.2.12"
 }
 
 lazy val scalaStewardUpdater = project
