@@ -5,9 +5,9 @@ ThisBuild / version      := "0.1.0-SNAPSHOT"
 ThisBuild / scalaVersion := "2.13.8"
 
 val versions = new {
-  val outwatch          = "1.0.0-RC8"
-  val funPack           = "0.2.0"
-  val scalaTest         = "3.2.12"
+  val outwatch  = "1.0.0-RC8"
+  val funPack   = "0.2.0"
+  val scalaTest = "3.2.12"
 }
 
 lazy val scalaJsMacrotaskExecutor = Seq(
@@ -24,18 +24,17 @@ lazy val webapp = project
   .settings(scalaJsMacrotaskExecutor)
   .settings(
     libraryDependencies          ++= Seq(
-      "io.github.outwatch" %%% "outwatch"      % versions.outwatch,
-      "org.scalatest"      %%% "scalatest"     % versions.scalaTest % Test,
+      "io.github.outwatch" %%% "outwatch"  % versions.outwatch,
+      "org.scalatest"      %%% "scalatest" % versions.scalaTest % Test,
     ),
     Compile / npmDevDependencies ++= Seq(
       "@fun-stack/fun-pack" -> versions.funPack, // sane defaults for webpack development and production, see webpack.config.*.js
     ),
-
     scalacOptions --= Seq(
       "-Xfatal-warnings",
     ), // overwrite option from https://github.com/DavidGregory084/sbt-tpolecat
 
-    useYarn                       := true, // Makes scalajs-bundler use yarn instead of npm
+    useYarn := true, // Makes scalajs-bundler use yarn instead of npm
     scalaJSLinkerConfig ~= (_.withModuleKind(
       ModuleKind.CommonJSModule,
     )), // configure Scala.js to emit a JavaScript module instead of a top-level script

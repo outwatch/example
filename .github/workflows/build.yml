@@ -56,7 +56,7 @@ jobs:
           # http://www.foundweekends.org/giter8/testing.html
           g8 file://${GITHUB_WORKSPACE}/ --name="Outwatch Example" --force
           cd outwatch-example
-          sbt fastOptJS/webpack
+          sbt fastOptJS/webpack scalafmt scalafmtSbt
 
       - name: Build production assets
         if: github.ref == 'refs/heads/master'
