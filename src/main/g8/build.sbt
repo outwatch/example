@@ -2,7 +2,7 @@ Global / onChangedBuildSource := IgnoreSourceChanges // not working well with we
 
 name                     := "$name;format="Camel"$"
 ThisBuild / version      := "0.1.0-SNAPSHOT"
-ThisBuild / scalaVersion := "2.13.8"
+ThisBuild / scalaVersion := "2.13.10"
 
 val versions = new {
   val outwatch  = "1.0.0-RC9"
