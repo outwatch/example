@@ -16,14 +16,14 @@ lazy val root = (project in file("."))
 val versions = new {
   val outwatch          = "1.0.0-RC9"
   val funPack           = "0.2.0"
-  val scalaTest         = "3.2.13"
+  val scalaTest         = "3.2.14"
 }
 
 lazy val scalaStewardUpdater = project
   .enablePlugins(ScalaJSPlugin)
   .disablePlugins(Giter8Plugin, Giter8TemplatePlugin)
   .settings(
-    scalaVersion := "2.13.8",
+    scalaVersion := "2.13.10",
     // replicate all dependencies here, so scala-steward can update them
     libraryDependencies              ++= Seq(
       "io.github.outwatch" %%% "outwatch"      % versions.outwatch,
