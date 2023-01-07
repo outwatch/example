@@ -48,15 +48,10 @@ jobs:
           sbt fastOptJS/webpack scalafmt scalafmtSbt
 
       - name: Build production assets
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         run: |
           cd outwatch-example
           sbt prod
-
-      - name: ls
-        run: |
-          cd outwatch-example
-          ls -la webapp/target/scala-2.13/scalajs-bundler/main/dist
 
       - name: Deploy to Github Pages
         if: github.ref == 'refs/heads/master'
