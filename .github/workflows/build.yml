@@ -63,12 +63,10 @@ jobs:
 #        uses: mxschmitt/action-tmate@v3
 #        with:
 #          limit-access-to-actor: true
-#
 
-
-#      - name: Deploy to Github Pages
-#        if: github.ref == 'refs/heads/master'
-#        uses: JamesIves/github-pages-deploy-action@v4.2.5
-#        with:
-#          branch: gh-pages # The branch the action should deploy to.
-#          folder: outwatch-example/webapp/target/scala-2.13/scalajs-bundler/main/dist # The folder the action should deploy.
+      - name: Deploy to Github Pages
+        if: github.ref == 'refs/heads/main'
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: outwatch-example/webapp/target/scala-2.13/scalajs-bundler/main/dist # The folder the action should deploy.
