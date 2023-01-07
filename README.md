@@ -3,7 +3,12 @@ A [Giter8][g8] template for [outwatch](https://github.com/outwatch/outwatch).
 Make sure that `java`, `sbt`, `nodejs` and `yarn` are installed.
 
 ```bash
-sbt new outwatch/seed.g8
+
+TODO: insert gh-cli command
+
+# if you want to just get the template locally without creating a github repo:
+git clone --depth 1 https://github.com/FloWi/seed.g8.git my-project-name
+
 ```
 
 In your newly created project directory, run:
