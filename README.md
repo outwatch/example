@@ -20,7 +20,6 @@ sbt dev
 
 and point your browser to <http://localhost:12345>.
 
-**FIXME: correct link to outwatch-org**
 This example is also automatically deployed to github pages: <https://outwatch.github.io/example>
 
 Template license
