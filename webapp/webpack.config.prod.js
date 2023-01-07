@@ -1,7 +1,17 @@
 const {webProd} = require("@fun-stack/fun-pack");
+const {merge} = require("webpack-merge");
 
 // https://github.com/fun-stack/fun-pack
-module.exports = webProd({
+prodConfig = webProd({
   indexHtml: "src/main/html/index.html",
-  assetsDir: "assets"
+  // assetsDir: "assets",
 });
+
+myConfig = {
+  ignoreWarnings: [/./]
+}
+
+module.exports = merge(
+  prodConfig, myConfig
+)
+

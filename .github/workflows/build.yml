@@ -42,19 +42,23 @@ jobs:
       - name: Test
         run: sbt test
 
+      - name: Use Template
+        run: |
+          git clone --depth 1 --branch github-template https://github.com/FloWi/seed.g8.git outwatch-example
+          cd outwatch-example
+          sbt fastOptJS/webpack scalafmt scalafmtSbt
+
+      - name: Build testing assets
+        if: github.ref == 'refs/heads/github-template'
+        run: |
+          cd outwatch-example
+          sbt prod
+
       - name: Debug over SSH (tmate)
         # if: ${{ failure() }}
         uses: mxschmitt/action-tmate@v3
         with:
           limit-access-to-actor: true
-
-      - name: Use Template
-        run: |
-          export PATH=$HOME/.local/share/coursier/bin:$PATH
-          # http://www.foundweekends.org/giter8/testing.html
-          g8 file://${GITHUB_WORKSPACE}/ --name="Outwatch Example" --force
-          cd outwatch-example
-          sbt fastOptJS/webpack scalafmt scalafmtSbt
 
 
       - name: Build production assets

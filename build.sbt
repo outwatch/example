@@ -18,7 +18,7 @@ lazy val scalaJsMacrotaskExecutor = Seq(
 
 def readJsDependencies(baseDirectory: File, field: String): Seq[(String, String)] = {
   val packageJson = ujson.read(IO.read(new File(s"$baseDirectory/package.json")))
-  packageJson(field).obj.mapValues(_.str.toString).toSeq
+  packageJson(field).obj.mapValues(_.str).toSeq
 }
 
 lazy val webapp = project
