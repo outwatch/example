@@ -43,7 +43,7 @@ jobs:
 
       - name: Use Template
         run: |
-          git clone --depth 1 https://github.com/FloWi/seed.g8.git outwatch-example
+          git clone --depth 1 https://github.com/FloWi/outwatch-template.git outwatch-example
           cd outwatch-example
           sbt fastOptJS/webpack scalafmt scalafmtSbt
 
@@ -52,6 +52,11 @@ jobs:
         run: |
           cd outwatch-example
           sbt prod
+
+      - name: ls
+        run: |
+          cd outwatch-example
+          ls -la webapp/target/scala-2.13/scalajs-bundler/main/dist
 
 #      - name: Debug over SSH (tmate)
 #        # if: ${{ failure() }}
