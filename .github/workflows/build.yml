@@ -2,7 +2,7 @@ name: Test
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
   workflow_dispatch:
 jobs:
@@ -43,7 +43,7 @@ jobs:
 
       - name: Use Template
         run: |
-          git clone --depth 1 https://github.com/FloWi/outwatch-template.git outwatch-example
+          git clone --depth 1 https://github.com/outwatch/example.git outwatch-example
           cd outwatch-example
           sbt fastOptJS/webpack scalafmt scalafmtSbt
 
@@ -58,15 +58,15 @@ jobs:
           cd outwatch-example
           ls -la webapp/target/scala-2.13/scalajs-bundler/main/dist
 
-#      - name: Debug over SSH (tmate)
-#        # if: ${{ failure() }}
-#        uses: mxschmitt/action-tmate@v3
-#        with:
-#          limit-access-to-actor: true
-
       - name: Deploy to Github Pages
         if: github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: outwatch-example/webapp/target/scala-2.13/scalajs-bundler/main/dist # The folder the action should deploy.
+
+#      - name: Debug over SSH (tmate)
+#        # if: ${{ failure() }}
+#        uses: mxschmitt/action-tmate@v3
+#        with:
+#          limit-access-to-actor: true

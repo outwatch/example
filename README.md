@@ -2,26 +2,26 @@ A [github-template][github-template] for [outwatch](https://github.com/outwatch/
 
 Make sure that `java`, `sbt`, `nodejs`, `yarn` and `github-cli` (optionally) are installed.
 
-```bash
+```shell
 # create new repo on github based on this template
-gh repo create my-first-outwatch-project --template FloWi/outwatch-example --public --clone
+gh repo create my-first-outwatch-project --template outwatch/example --public --clone
 
 # if you want to just get the template locally without creating a github repo:
-git clone --depth 1 https://github.com/FloWi/outwatch-example my-first-outwatch-project
+git clone --depth 1 https://github.com/outwatch/example my-first-outwatch-project
 
 
 ```
 
 In your newly created project directory, run:
 
-```bash
+```shell
 sbt dev
 ```
 
-and point your browser to http://localhost:12345.
+and point your browser to <http://localhost:12345>.
 
 **FIXME: correct link to outwatch-org**
-This example is also automatically deployed to github pages: <https://flowi.github.io/outwatch-example>
+This example is also automatically deployed to github pages: <https://outwatch.github.io/example>
 
 Template license
 ----------------
