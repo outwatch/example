@@ -39,7 +39,6 @@ object Main {
       ),
       button("clear", onClick.as("") --> text),
       div("text: ", text),
-      div("text: ", text),
       div("length: ", text.map(_.length)),
     )
   }
