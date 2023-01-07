@@ -47,9 +47,6 @@ jobs:
           chmod +x cs
           sudo mv cs /usr/local/bin
 
-      - name: Install g8
-        run: cs install giter8
-
       - name: Use Template
         run: |
           export PATH=$HOME/.local/share/coursier/bin:$PATH
