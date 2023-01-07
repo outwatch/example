@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - github-template
   pull_request:
   workflow_dispatch:
 jobs:
@@ -41,11 +42,11 @@ jobs:
       - name: Test
         run: sbt test
 
-      - name: Install Coursier
-        run: |
-          curl -fLo cs https://git.io/coursier-cli-linux
-          chmod +x cs
-          sudo mv cs /usr/local/bin
+      - name: Debug over SSH (tmate)
+        # if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true
 
       - name: Use Template
         run: |
@@ -55,21 +56,17 @@ jobs:
           cd outwatch-example
           sbt fastOptJS/webpack scalafmt scalafmtSbt
 
+
       - name: Build production assets
         if: github.ref == 'refs/heads/master'
         run: |
           cd outwatch-example
           sbt prod
 
-      - name: Deploy to Github Pages
-        if: github.ref == 'refs/heads/master'
-        uses: JamesIves/github-pages-deploy-action@v4.2.5
-        with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: outwatch-example/webapp/target/scala-2.13/scalajs-bundler/main/dist # The folder the action should deploy.
 
-      # - name: Debug over SSH (tmate)
-      #   # if: ${{ failure() }}
-      #   uses: mxschmitt/action-tmate@v3
-      #   with:
-      #     limit-access-to-actor: true
+#      - name: Deploy to Github Pages
+#        if: github.ref == 'refs/heads/master'
+#        uses: JamesIves/github-pages-deploy-action@v4.2.5
+#        with:
+#          branch: gh-pages # The branch the action should deploy to.
+#          folder: outwatch-example/webapp/target/scala-2.13/scalajs-bundler/main/dist # The folder the action should deploy.
