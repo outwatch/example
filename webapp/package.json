@@ -1,0 +1,8 @@
+{
+  "license": "UNLICENSED",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@fun-stack/fun-pack": "0.3.4"
+  }
+}

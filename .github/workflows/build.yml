@@ -1,10 +1,12 @@
 name: Test
+
 on:
   push:
     branches:
       - master
   pull_request:
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -38,30 +40,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-scalablytyped-
 
-      - name: Test
-        run: sbt test
-
-      - name: Install Coursier
-        run: |
-          curl -fLo cs https://git.io/coursier-cli-linux
-          chmod +x cs
-          sudo mv cs /usr/local/bin
-
-      - name: Install g8
-        run: cs install giter8
-
-      - name: Use Template
-        run: |
-          export PATH=$HOME/.local/share/coursier/bin:$PATH
-          # http://www.foundweekends.org/giter8/testing.html
-          g8 file://${GITHUB_WORKSPACE}/ --name="Outwatch Example" --force
-          cd outwatch-example
-          sbt fastOptJS/webpack scalafmt scalafmtSbt
+      - name: Build and Test
+        run: sbt scalafmtCheckAll test fastOptJS/webpack 
 
       - name: Build production assets
         if: github.ref == 'refs/heads/master'
         run: |
-          cd outwatch-example
           sbt prod
 
       - name: Deploy to Github Pages
@@ -69,10 +53,10 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: outwatch-example/webapp/target/scala-2.13/scalajs-bundler/main/dist # The folder the action should deploy.
+          folder: webapp/target/scala-2.13/scalajs-bundler/main/dist # The folder the action should deploy.
 
-      # - name: Debug over SSH (tmate)
-      #   # if: ${{ failure() }}
-      #   uses: mxschmitt/action-tmate@v3
-      #   with:
-      #     limit-access-to-actor: true
+#      - name: Debug over SSH (tmate)
+#        # if: ${{ failure() }}
+#        uses: mxschmitt/action-tmate@v3
+#        with:
+#          limit-access-to-actor: true

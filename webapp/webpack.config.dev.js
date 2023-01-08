@@ -7,3 +7,6 @@ module.exports = webDev({
     "src" // for source maps
   ]
 });
+
+module.exports.devServer.host = "0.0.0.0";
+module.exports.devServer.allowedHosts = "all";
