@@ -1,10 +1,12 @@
 name: Test
+
 on:
   push:
     branches:
       - master
   pull_request:
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -38,19 +40,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-scalablytyped-
 
-      - name: Test
-        run: sbt test
-
-      - name: Use Template
-        run: |
-          git clone --depth 1 https://github.com/outwatch/example.git outwatch-example
-          cd outwatch-example
-          sbt fastOptJS/webpack scalafmt scalafmtSbt
+      - name: Build and Test
+        run: sbt scalafmt scalafmtSbt test fastOptJS/webpack 
 
       - name: Build production assets
         if: github.ref == 'refs/heads/master'
         run: |
-          cd outwatch-example
           sbt prod
 
       - name: Deploy to Github Pages
@@ -58,7 +53,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: outwatch-example/webapp/target/scala-2.13/scalajs-bundler/main/dist # The folder the action should deploy.
+          folder: webapp/target/scala-2.13/scalajs-bundler/main/dist # The folder the action should deploy.
 
 #      - name: Debug over SSH (tmate)
 #        # if: ${{ failure() }}
