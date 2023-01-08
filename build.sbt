@@ -9,6 +9,9 @@ val versions = new {
   val scalaTest = "3.2.15"
 }
 
+// do not warn about unused setting key. TODO: why is this needed? scala-js-bundler bug? sbt says this setting is unused, but it is used.
+Global / excludeLintKeys += webpackDevServerPort
+
 lazy val scalaJsMacrotaskExecutor = Seq(
   // https://github.com/scala-js/scala-js-macrotask-executor
   libraryDependencies       += "org.scala-js" %%% "scala-js-macrotask-executor" % "1.0.0",
