@@ -41,7 +41,7 @@ jobs:
             ${{ runner.os }}-scalablytyped-
 
       - name: Build and Test
-        run: sbt scalafmt scalafmtSbt test fastOptJS/webpack 
+        run: sbt scalafmtCheckAll test fastOptJS/webpack 
 
       - name: Build production assets
         if: github.ref == 'refs/heads/master'
