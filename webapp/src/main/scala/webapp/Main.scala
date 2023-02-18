@@ -6,29 +6,15 @@ import outwatch._
 import outwatch.dsl._
 import webapp.Main.StyledComponents.{basicButton, basicTextInput}
 
-import scala.scalajs.js
-import scala.scalajs.js.annotation.JSImport
-
 // Outwatch documentation:
 // https://outwatch.github.io/docs/readme.html
 
-@js.native
-@JSImport("../../../../src/main/css/index.css", JSImport.Namespace)
-object Css         extends js.Object
-//
-@js.native
-@JSImport("../../../../src/main/css/tailwind.css", JSImport.Namespace)
-object TailwindCss extends js.Object
-
 object Main {
 
-  // keep these references even though IntelliJ thinks they're not used
-  // noinspection ScalaUnusedExpression
-  TailwindCss
-  // noinspection ScalaUnusedExpression
-  Css // load css
-  def main(args: Array[String]): Unit =
+  def main(args: Array[String]): Unit = {
+    LoadCss()
     Outwatch.renderInto[SyncIO]("#app", app).unsafeRunSync()
+  }
 
   def app = div(
     cls := "p-24 flex flex-col gap-4 w-1/2",
