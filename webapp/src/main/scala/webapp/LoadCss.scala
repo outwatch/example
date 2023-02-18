@@ -19,9 +19,9 @@ object LoadCss {
     // keep these references even though IntelliJ thinks they're not used
 
     // noinspection ScalaUnusedExpression
-    TailwindCss
+    TailwindCss: Unit
     // noinspection ScalaUnusedExpression
-    Css // load css
+    Css: Unit // load css
     ()
   }
 }
