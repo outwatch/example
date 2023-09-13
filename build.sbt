@@ -2,7 +2,7 @@ Global / onChangedBuildSource := IgnoreSourceChanges // not working well with we
 
 name                     := "OutwatchExample"
 ThisBuild / version      := "0.1.0-SNAPSHOT"
-ThisBuild / scalaVersion := "2.13.11"
+ThisBuild / scalaVersion := "2.13.12"
 
 val versions = new {
   val outwatch  = "1.0.0-RC15"
