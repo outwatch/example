@@ -5,7 +5,7 @@ ThisBuild / version      := "0.1.0-SNAPSHOT"
 ThisBuild / scalaVersion := "2.13.12"
 
 val versions = new {
-  val outwatch  = "1.0.0-RC15"
+  val outwatch  = "1.0.0-RC17"
   val scalaTest = "3.2.17"
 }
 
