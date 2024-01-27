@@ -2,11 +2,11 @@ Global / onChangedBuildSource := IgnoreSourceChanges // not working well with we
 
 name                     := "OutwatchExample"
 ThisBuild / version      := "0.1.0-SNAPSHOT"
-ThisBuild / scalaVersion := "2.13.11"
+ThisBuild / scalaVersion := "2.13.12"
 
 val versions = new {
-  val outwatch  = "1.0.0-RC15"
-  val scalaTest = "3.2.16"
+  val outwatch  = "1.0.0"
+  val scalaTest = "3.2.17"
 }
 
 // do not warn about unused setting key. TODO: why is this needed? scala-js-bundler bug? sbt says this setting is unused, but it is used.
