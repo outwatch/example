@@ -40,8 +40,8 @@ lazy val webapp = project
       "-Xfatal-warnings",
     ), // overwrite option from https://github.com/DavidGregory084/sbt-tpolecat
 
-    useYarn       := true, // Makes scalajs-bundler use yarn instead of npm
-    yarnExtraArgs += "--prefer-offline",
+    useYarn                           := true, // Makes scalajs-bundler use yarn instead of npm
+    yarnExtraArgs                     += "--prefer-offline",
     scalaJSLinkerConfig ~= (_.withModuleKind(
       ModuleKind.CommonJSModule,
     )), // configure Scala.js to emit a JavaScript module instead of a top-level script
