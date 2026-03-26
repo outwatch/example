@@ -6,7 +6,7 @@ ThisBuild / scalaVersion := "2.13.16"
 
 val versions = new {
   val outwatch  = "1.1.0"
-  val scalaTest = "3.2.19"
+  val scalaTest = "3.2.20"
 }
 
 // do not warn about unused setting key. TODO: why is this needed? scala-js-bundler bug? sbt says this setting is unused, but it is used.
